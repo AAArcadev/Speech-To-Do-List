@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpeechToDoList</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="columns">
+        <div class="column">
+            <section class="section">
+                <div class="container block">
+                    <h1 class="title">
+                        Speech-to-To Do List
+                    </h1>
+                    <p class="subtitle">
+                        Record your voice and add to your to-do list!
+                    </p>
+                </div>
+                <div class="container block">
+                    <h5 class="title is-5">Select Language</h5>
+                    <div class="select">
+                        <select id="select_language" onchange="updateCountry()"></select>
+                    </div>
+                    <div class="select">
+                        <select id="select_dialect"></select>
+                    </div>
+                </div>
+                <div class="container block">
+                    <h5 class="title is-5">Transcript</h5>
+                    <div class="block" style="border: 1px solid gray; height: 300px; border-radius: 8px;">
+                        <span id="final" class="text-light"></span>
+                        <span id="interim" class="text-secondary"></span>
+                    </div>
+
+                    <textarea class="textarea" id="typefinal" placeholder="Or just type..."></textarea>
+                </div>
+                <div class="container">
+                    <button class="button is-success" id="start">Start</button>
+                    <button class="button is-danger" id="stop">Stop</button>
+                    <button class="button is-link" onclick="AddTo()">Add to To-Do List</button>
+                    <p id="status" class="lead mt-3 text-light" style="display: none">Listening ...</p>
+                </div>
+            </section>
+        </div>
+        <div class="column">
+            <section class="section">
+                <div class="container block">
+                    <h1 class="title">
+                        To Do List
+                    </h1>
+                    <p class="subtitle">
+                        Click "Add to To-Do List" to add the Transcript to the to-do list!
+                    </p>
+                </div>
+                <div class="container block box content">
+                        <ul class="section" id="myList">
+                        </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+<script src="./speechRecognition.js"></script>
+<script src="./language.js"></script>
+
+</html>
